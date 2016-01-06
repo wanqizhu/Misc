@@ -1,0 +1,12 @@
+The main idea is that each "dependency/anti-dependency" can be viewed as a directed edge, with the locks being the verticies. We have an edge a-->b if b depends on a (and an edge b-->a if a anti-depend on b). Then, a "solution" correspond to a topological ordering of the verticies.
+
+Reading in line by line, we can construct such a directed graph. Thus, the problem can be solved by running DFS on the graph and checking if the graph is a DAG. If so, we can output the verticies in reverse-order by finishing time.
+
+
+
+
+Note: to make the solution harder to reach, we can make it so that each lock is re-lockable. i.e. we have switches on the locks that can be switched on/off, so long as the dependencies are satisfied.
+	If switching on/off use the same dependencies, then the answer remain the same (though it requires some thought to reach this conclusion). Otherwise, the problem becomes more complicated.
+
+
+A sample solution is coded up in lock.c. The code uses more lines than necessary, since I'm using aspects of graphs/linked-lists that I've previously coded. It can be cleaned up, but the main ideas are all there.
