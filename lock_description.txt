@@ -1,0 +1,53 @@
+Oh no, I woke up one day and found myself trapped in a vault, with a series of interconnected locks blocking the door! 
+
+After some fumbling, it turns out that these gizmos are not just normal locks. We say that
+
+#A "depends" on #B if #A cannot be unlocked unless #B is already open;
+#A "anti-depends" on #B if #A cannot be unlocked unless #B is still locked.
+
+
+Initially, all the locks are locked. Luckily, I'm good at cracking locks, but I can only unlock lock #n if all the locks #n depend on is already unlocked AND all the locks #n anti-depend on is still locked.
+
+Help me escape by unlocking all the locks!
+
+
+
+The input ("lock.in") will contain 2N+1 lines, N < 10000, of the following format:
+
+line 1: a single integer N
+
+for k = 1 to N:
+	line 2k: a series of integers, separated by space, listing all the locks that lock #k depend on
+	line 2k+1: a series of integers, separated by space, listing all the locks that lock #k anti-depend on
+
+
+If it's impossible for me to escape, output "IMPOSSIBLE" . Otherwise, output a series of integers, one per line, listing (one of) the order in which I must unlock the locks to escape.
+
+
+
+Example Input:
+
+5
+3
+2 4
+N
+5
+N
+N
+2 3
+N
+N
+4
+
+
+
+Example Output:
+
+3
+1
+2
+5
+4
+
+
+If I unlock lock #3, 1, 2, 5, 4 in that order, I can escape.
